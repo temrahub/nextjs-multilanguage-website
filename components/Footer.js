@@ -1,13 +1,9 @@
 const Footer = () => {
   return (
     <footer className="text-center flex flex-col items-center py-20 container mx-auto">
-      <p>Next.js Demo Website created with Storyblok</p>
+      <p>Next.js Demo Website created with Tamir</p>
       <div className="flex items-center my-8">
-        <img
-          src="https://a.storyblok.com/f/51376/3856x824/fea44d52a9/colored-full.png"
-          alt="Storyblok Logo"
-          className="w-48 m-4"
-        />
+        <img src="/" alt="zevtabslogo" className="w-48 m-4" />
         <svg
           className="w-32 m-4"
           xmlns="http://www.w3.org/2000/svg"
@@ -20,9 +16,7 @@ const Footer = () => {
         </svg>
       </div>
       <p className="underline">
-        <a href="https://www.storyblok.com/tp/next-js-react-guide">
-          View tutorial on Storyblok
-        </a>
+        <a href="http://www.zevtabs.mn/">Main Website of Zevtabs</a>
       </p>
     </footer>
   );

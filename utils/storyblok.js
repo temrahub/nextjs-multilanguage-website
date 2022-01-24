@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import StoryblokClient from "storyblok-js-client";
 
 const Storyblok = new StoryblokClient({
-  accessToken: "YOUR_PREVIEW_TOKEN",
+  accessToken: "zkIN0LpmC5SrPsjxMu4rOQtt",
   cache: {
     clear: "auto",
     type: "memory",
@@ -12,23 +12,23 @@ const Storyblok = new StoryblokClient({
 export function useStoryblok(originalStory, preview, locale) {
   let [story, setStory] = useState(originalStory);
 
-  // adds the events for updating the visual editor
-  // see https://www.storyblok.com/docs/guide/essentials/visual-editor#initializing-the-storyblok-js-bridge
+  // визуал засварлагчийг шинэчлэх үйл явдлуудыг нэмдэг
+  // харах https://www.storyblok.com/docs/guide/essentials/visual-editor#initializing-the-storyblok-js-bridge
   function initEventListeners() {
     const { StoryblokBridge } = window;
     if (typeof StoryblokBridge !== "undefined") {
-      // initialize the bridge with your token
+      // гүүрийг өөрийн токеноор эхлүүлнэ үү
       const storyblokInstance = new StoryblokBridge({
         resolveRelations: ["featured-posts.posts", "selected-posts.posts"],
         language: locale,
       });
 
-      // reload on Next.js page on save or publish event in the Visual Editor
+      // Visual Editor-д үйл явдлыг хадгалах эсвэл нийтлэхийн тулд Next.js хуудсан дээр дахин ачаална уу
       storyblokInstance.on(["change", "published"], () =>
         location.reload(true)
       );
 
-      // live update the story on input events
+      // оролтын үйл явдлын тухай түүхийг шууд шинэчлэх
       storyblokInstance.on("input", (event) => {
         if (story && event.story._uid === story._uid) {
           setStory(event.story);
@@ -54,7 +54,7 @@ export function useStoryblok(originalStory, preview, locale) {
     }
   }
 
-  // appends the bridge script tag to our document
+  // гүүр скрипт хаягийг манай баримт бичигт хавсаргана
   // see https://www.storyblok.com/docs/guide/essentials/visual-editor#installing-the-storyblok-js-bridge
   function addBridge(callback) {
     // check if the script is already present
@@ -74,9 +74,9 @@ export function useStoryblok(originalStory, preview, locale) {
   }
 
   useEffect(() => {
-    // only load inside preview mode
+    // зөвхөн урьдчилан харах горимд ачаална
     if (preview) {
-      // first load the bridge, then initialize the event listeners
+      // эхлээд гүүрийг ачаалж, дараа нь үйл явдлын сонсогчдыг эхлүүлнэ
       addBridge(initEventListeners);
     }
   }, []);

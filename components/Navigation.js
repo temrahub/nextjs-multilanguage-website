@@ -9,34 +9,20 @@ const Navigation = ({ locale, locales, defaultLocale }) => {
     en: "About",
     es: "Acerca",
   };
-  
+
   const defaultRoot = locale === defaultLocale ? "/" : `/${locale}/`;
   return (
-    <header className="w-full bg-white">
+    <header className="w-full bg-red-700 ">
       <nav className="" role="navigation">
-        <div className="container mx-auto p-4 flex flex-wrap items-center md:flex-no-wrap">
+        <div className="container mx-3 p-4 flex flex-wrap items-center  md:flex-no-wrap">
           <div className="mr-4 md:mr-8">
             <Link href="/">
-              <a>
-                <svg width="69" height="66" xmlns="http://www.w3.org/2000/svg">
-                  <g fill="none" fillRule="evenodd">
-                    <path fill="#FFF" d="M-149-98h1440v938H-149z" />
-                    <path
-                      d="M37.555 66c17.765 0 27.051-16.38 30.24-33.415C70.986 15.549 52.892 4.373 35.632.52 18.37-3.332 0 14.876 0 32.585 0 50.293 19.791 66 37.555 66z"
-                      fill="#000"
-                    />
-                    <path
-                      d="M46.366 42.146a5.55 5.55 0 01-1.948 2.043c-.86.557-1.811 1.068-2.898 1.3-1.087.279-2.265.511-3.487.511H22V20h18.207c.905 0 1.675.186 2.4.604a6.27 6.27 0 011.811 1.485 7.074 7.074 0 011.54 4.504c0 1.207-.317 2.368-.905 3.482a5.713 5.713 0 01-2.718 2.507c1.45.418 2.582 1.16 3.442 2.229.815 1.114 1.223 2.553 1.223 4.364 0 1.16-.226 2.136-.68 2.971h.046z"
-                      fill="#FFF"
-                    />
-                  </g>
-                </svg>
-              </a>
+              <img className="w-10 h-10" src="/log0.png"></img>
             </Link>
           </div>
           <div className="text-black">
-            <p className="text-lg">Storyblok</p>
-            <p>NextJS Demo</p>
+            <p className="text-lg">Zevtabs </p>
+            <p>nextJS demo</p>
           </div>
           <div className="ml-auto md:hidden">
             <button
@@ -63,15 +49,15 @@ const Navigation = ({ locale, locales, defaultLocale }) => {
                 </Link>
               </li>
               <li>
-                <Link href={`${defaultRoot}blog`}>
-                  <a className="block px-4 py-1 md:p-2 lg:px-8">Blog</a>
-                </Link>
-              </li>
-              <li>
                 <Link href={`${defaultRoot}about`}>
                   <a className="block px-4 py-1 md:p-2 lg:px-8">
                     {resolveAbout[locale]}
                   </a>
+                </Link>
+              </li>
+              <li>
+                <Link href={`${defaultRoot}Product`}>
+                  <a className="block px-4 py-1 md:p-2 lg:px-8">Blog</a>
                 </Link>
               </li>
             </ul>
